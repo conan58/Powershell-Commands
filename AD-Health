@@ -1,0 +1,10 @@
+#There are four system components that are critical for the efficient running of Active Directory Domain Services: 1) DFS Replication, 2) DNS Server, 3) #Intersite Messaging, and 4) Kerberos Key Distribution Center (See the screenshot below).
+
+#To make sure everything is working:
+
+$Services='DNS','DFS Replication','Intersite Messaging','Kerberos Key Distribution Center','NetLogon',’Active Directory Domain Services’
+ForEach ($Service in $Services) {Get-Service $Service | Select-Object Name, Status}
+
+#Also you can use the DCDiag tool to help see what other isues you are having And output to a file for analysis
+
+DCDiag /Test:DNS /e /v > c:\output.txt
