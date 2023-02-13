@@ -1,0 +1,4 @@
+$computerName = "REMOTE_COMPUTER_NAME"
+$firewallProfile = Invoke-Command -ComputerName $computerName -ScriptBlock {Get-NetFirewallProfile}
+
+$firewallProfile | Select-Object -ExpandProperty enabled
