@@ -1,0 +1,14 @@
+$computers = Get-ADComputer -Filter * | Select-Object -ExpandProperty Name
+$results = @()
+
+foreach ($computer in $computers) {
+  $result = Invoke-Command -ComputerName $computer -ScriptBlock { Get-NetFirewallProfile }
+  $results += New-Object PSObject -Property @{
+    ComputerName = $computer
+    DomainProfile = $result.DomainProfile.Enabled
+    PrivateProfile = $result.PrivateProfile.Enabled
+    PublicProfile = $result.PublicProfile.Enabled
+  }
+}
+
+$results | Export-Csv -Path C:\firewall_status.csv -NoTypeInformation
