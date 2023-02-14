@@ -1,0 +1,3 @@
+Restart-Computer -ComputerName "Name" -Force
+
+This will restart a computer,  Using the -ComputerName Tag "Name Here". Keep the quotes and then the -Force will force the computer to restart even if there are people on it. 
