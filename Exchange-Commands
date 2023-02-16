@@ -1,0 +1,4 @@
+Do this command in elevated Powershell:
+
+Get-Service | Where-Object { $_.DisplayName –like “Microsoft Exchange *” } | Set-Service –StartupType Automatic
+Get-Service | Where-Object { $_.DisplayName –like “Microsoft Exchange *” } | Start-Service
