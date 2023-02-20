@@ -1,0 +1,3 @@
+ We are going to use this command to get the GPO that is assigned to this Computer, with This user and we will get a report on the local machine that I am running this command on at the Specified File Path. 
+ 
+ Get-GPResultantSetOfPolicy -Computer CUITC-59W9HT2 -User lsherron -ReportType Html -Path "C:\Lisa-S-GPOReport.html"
